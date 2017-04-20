@@ -10,23 +10,23 @@ import org.junit.Before;
 import io.undertow.Undertow;
 
 public class ClientTestBase {
-	public static final String SERVER_HOST = "localhost";
-	public static final int SERVER_PORT = 8091;
-	
-	protected UndertowJaxrsServer server;
-	protected Client client;
-	
-	@Before
-	public void setUp() {
-		server = new UndertowJaxrsServer();
-		server.start(Undertow.builder().addHttpListener(SERVER_PORT, SERVER_HOST));
-		client = ClientBuilder.newClient();
-	}
-	
-	@After
-	public void tearDown() {
-		server.stop();
-		client.close();
-	}
-	
+    public static final String SERVER_HOST = "localhost";
+    public static final int SERVER_PORT = 9691;
+
+    protected UndertowJaxrsServer server;
+    protected Client client;
+
+    @Before
+    public void setUp() {
+        server = new UndertowJaxrsServer();
+        server.start(Undertow.builder().addHttpListener(SERVER_PORT, SERVER_HOST));
+        client = ClientBuilder.newClient();
+    }
+
+    @After
+    public void tearDown() {
+        server.stop();
+        client.close();
+    }
+
 }
